@@ -1,3 +1,5 @@
+题目链接：https://leetcode-cn.com/problems/remove-element/
+
 ```java
 //Java
 //双指针方法，慢指针i记录新数组元素的个数，快指针j用于遍历原数组
