@@ -1,4 +1,4 @@
-![image-20200919201754069](C:\Users\Yuan\AppData\Roaming\Typora\typora-user-images\image-20200919201754069.png)
+题目链接：https://leetcode-cn.com/problems/sum-of-left-leaves/
 
 ```c++
 //C++
