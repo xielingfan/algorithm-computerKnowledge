@@ -1,4 +1,5 @@
 ```java
+//Java
 //双指针方法，慢指针i记录新数组元素的个数，快指针j用于遍历原数组
 //会有不必要的元素复制
 class Solution {
@@ -16,6 +17,7 @@ class Solution {
 ```
 
 ```java
+//Java
 //双指针，分左指针和右指针，当数组中等于val的元素个数较少时效率高，因为可以减少不必要的元素复制
 class Solution {
     public int removeElement(int[] nums, int val) {
