@@ -12,7 +12,7 @@ public:
             path.push_back(nums[i]);
             res.push_back(path);
             if(i + 1 < end) {
-                dfs(nums, i + 1, end, path, res); //往后便利，避免无用尝试
+                dfs(nums, i + 1, end, path, res); //往后遍历，避免无用尝试
             }
             path.pop_back();
         }
