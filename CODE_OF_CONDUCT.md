@@ -1,48 +1,29 @@
-# 参与规范
+# 行为守则
 
-## LeetCode题解
+这是一个提交LeetCode的项目，我们真诚地希望可以有更多的人加入这一个项目，一起优化。因此，设立此行为规范，希望大家都能和谐相处，共同进步
 
-题解放在Leetcode文件夹中
+## 我们鼓励的行为：
 
-题解需要包含leetcode题目链接
+使用包容的语言
 
-题解命名规则：LeetCode27.md
+尊重不同的观点和经验
 
-### 题解示例（代码上方说明自己使用什么语言）
-题目链接：https://leetcode-cn.com/problems/sum-of-left-leaves/
+优雅地接受建设性的批评
 
-```c++
-//C++
-//使用深度优先搜索遍历所有节点，在传入参数时使用不同变量标记该节点是左孩子还是右孩子，当且仅当一个节点同时满足叶子结点和左孩子将该节点的值累加到结果上
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-public:
-    int sumOfLeftLeaves(TreeNode* root) {
-        if(root == NULL) return 0;
-        int res = 0; //存储结果
-        dfs(root, -1, res);
-        return res;
-    }
-    //使用flag标记当前节点的性质，-1为根节点，0为左子树，1为右子树
-    void dfs(TreeNode* root, int flag, int& res) {
-        if(root == NULL) return;
-        if(root->left == NULL && root->right == NULL && flag == 0) {
-            res += root->val; //当前节点为叶子节点且标记为左孩子时才累加结果
-        }
-        dfs(root->left, 0, res); //遍历左子树
-        dfs(root->right, 1, res); //遍历右子树
-    }
-};
-```
+热系帮助其他社区成员
 
+如果感觉题解写的不错，可以在LeetCode评论区打打广告
 
+## 我们拒绝的行为：
 
+侮辱性评论以及个人或政治攻击
 
+公共或私人骚扰
+
+未经明确许可发布他人的私人信息
+
+## 我们的责任
+
+项目维护者负责澄清可接受的行为标准，并应对任何不可接受的行为情况，采取适当和公平的纠正行动。
+
+项目维护者有权和责任删除、编辑或拒绝与本行为准则不一致的注释、提交、代码、wiki 编辑、问题和其他贡献，暂时或永久禁止任何贡献者从事他们认为不适当、威胁、冒犯或有害的其他行为。
