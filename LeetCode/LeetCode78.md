@@ -52,3 +52,52 @@ public:
 };
 ```
 
+```java
+//java
+//执行用时：1 ms, 在所有 Java 提交中击败了99.39%的用户
+//内存消耗：39.4 MB, 在所有 Java 提交中击败了8.07%的用户
+//通过位运算遍历所有情况
+
+class Solution {
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        int len = nums.length;
+        for (int i = 0; i < (1 << len); i++) {
+            List<Integer> sub = new ArrayList<Integer>();
+            for (int j = 0; j < nums.length; j++)
+                if (((i >> j) & 1) == 1)
+                    sub.add(nums[j]);
+            res.add(sub);
+        }
+        return res;
+    }
+}
+```
+
+```java
+//java
+//执行用时：1 ms, 在所有 Java 提交中击败了99.39%的用户
+//内存消耗：39 MB, 在所有 Java 提交中击败了67.09%的用户
+//回溯法
+class Solution {
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        backtrack(res,new ArrayList<>(), nums, 0);
+        return res;
+    }
+
+    private void backtrack(List<List<Integer>> list, List<Integer> tempList, int[] nums, int start)     {
+        //走过的所有路径都是子集的一部分，所以都要加入到集合中
+        list.add(new ArrayList<>(tempList));
+        for (int i = start; i < nums.length; i++) {
+            //做出选择
+            tempList.add(nums[i]);
+            //递归
+            backtrack(list, tempList, nums, i + 1);
+            //撤销选择
+            tempList.remove(tempList.size() - 1);
+        }
+    }
+}
+```
+
