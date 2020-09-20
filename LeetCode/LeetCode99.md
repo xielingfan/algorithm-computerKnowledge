@@ -1,3 +1,4 @@
+题目链接(https://leetcode-cn.com/problems/recover-binary-search-tree/)
 # 题解
 ## 方法一：
 对于二叉搜索树，如果进行中序遍历，那么得到的序列是有序的，如果有两个节点交换了，那么就是无序的，我们只需要找出这两个节点所在的位置然后交换值就好了。
@@ -209,4 +210,4 @@ public:
     }
 };
 ```
-题目链接(https://leetcode-cn.com/problems/recover-binary-search-tree/)
+
