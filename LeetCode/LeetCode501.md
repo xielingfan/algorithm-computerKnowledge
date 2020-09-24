@@ -64,3 +64,44 @@ class Solution {
     }
 }
 ```
+
+```java
+//java
+//执行耗时:0 ms,击败了100.00% 的Java用户
+//内存消耗:39.5 MB,击败了56.78% 的Java用户
+class Solution {
+    List<Integer> ans = new ArrayList<Integer>();
+    int nownum, nowcount = 0, maxcount = 0;
+    public void dfs(TreeNode root) {
+        if(root == null) return;
+        if(root.left != null) {
+            dfs(root.left);
+        }
+        if(root.val == nownum) {
+            nowcount++;
+        } else {
+            nowcount = 1;
+            nownum = root.val;
+        }
+        if(nowcount > maxcount) {
+            maxcount = nowcount;
+            ans.clear();
+            ans.add(root.val);
+        } else if(nowcount == maxcount) {
+            ans.add(root.val);
+        }
+        if(root.right != null) {
+            dfs(root.right);
+        }
+    }
+    public int[] findMode(TreeNode root) {
+        dfs(root);
+        int[] res = new int[ans.size()];
+        for(int i = 0; i < ans.size(); ++i) {
+            res[i] = ans.get(i);
+        }
+        return res;
+    }
+}
+```
+
