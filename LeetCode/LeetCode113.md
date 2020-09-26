@@ -26,7 +26,7 @@
 
 # 代码
 
-```java
+```python
 //dfs
 //执行耗时:2 ms,击败了49.57% 的Java用户
 //内存消耗:39.2 MB,击败了56.20% 的Java用户
@@ -52,4 +52,25 @@ class Solution {
         path.pollLast();
     }
 }
+//Python3
+//执行耗时:52 ms,击败了80.02% 的Python3用户
+//内存消耗:14.9 MB,击败了66.33% 的Python3用户
+class Solution:
+    def pathSum(self, root: TreeNode, total: int) -> List[List[int]]:
+        res = list();
+        path = list();
+
+        def dfs(root: TreeNode, total: int):
+            if not root:
+                return
+            path.append(root.val)
+            total -= root.val
+            if not root.left and not root.right and total == 0:
+                res.append(path[:])
+            dfs(root.left, total)
+            dfs(root.right, total)
+            path.pop()
+
+        dfs(root, total)
+        return res
 ```
