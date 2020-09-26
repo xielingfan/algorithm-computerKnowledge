@@ -59,3 +59,90 @@ public:
 };
 ```
 
+```java
+//java
+//执行耗时:2 ms,击败了97.53% 的Java用户
+//内存消耗:39.2 MB,击败了52.91% 的Java用户
+class Solution {
+
+    int post_idx;
+    int[] postorder;
+    int[] inorder;
+    Map<Integer,Integer> idx_map = new HashMap<>();
+
+    public TreeNode helper(int in_left, int in_right) {
+        if(in_left > in_right){
+            return null;
+        }
+
+        int root_val = postorder[post_idx];
+        TreeNode root = new TreeNode(root_val);
+
+        int index = idx_map.get(root_val);
+
+        --post_idx;
+        root.right = helper(index+1,in_right);
+        root.left = helper(in_left, index - 1);
+        return root;
+    }
+
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+        this.postorder = postorder;
+        this.inorder = inorder;
+        post_idx = postorder.length - 1;
+
+        int idx = 0;
+        for (Integer val : inorder){
+            idx_map.put(val,idx++);
+        }
+
+        return helper(0,inorder.length-1);
+    }
+}
+```
+
+```java
+//java
+//执行耗时:2 ms,击败了97.53% 的Java用户
+//内存消耗:39.6 MB,击败了12.04% 的Java用户
+//leetcode submit region begin(Prohibit modification and deletion)
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    int post_idx;
+    int[] postorder;
+    int[] inorder;
+    Map<Integer, Integer> idx_map = new HashMap<Integer, Integer>();
+
+    public TreeNode helper(int in_left, int in_right) {
+        if (in_left > in_right) {
+            return null;
+        }
+        int root_val = postorder[post_idx--];
+        TreeNode root = new TreeNode(root_val);
+        int index = idx_map.get(root_val);
+        root.right = helper(index + 1, in_right);
+        root.left = helper(in_left, index - 1);
+        return root;
+    }
+
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+        this.inorder = inorder;
+        this.postorder = postorder;
+        post_idx = postorder.length - 1;
+        int idx = 0;
+        for (Integer val : inorder) {
+            idx_map.put(val, idx++);
+        }
+        return helper(0, inorder.length - 1);
+    }
+}
+```
+
