@@ -2,7 +2,7 @@
 
 ### 项目背景
 
-本项目旨在帮助大家学习算法和计算机基础知识，并练习git与github操作，熟悉开源写作模式。
+本项目旨在帮助大家学习算法和计算机基础知识，并练习git与github操作，熟悉开源写作模式。我们非常欢迎大家参与进来。
 
 ![license](http://github.zhangqx.com/file-checker/github/XieLingfan/algorithm-computerKnowledge?path=LICENSE)
 ![readme](http://github.zhangqx.com/file-checker/github/XieLingfan/algorithm-computerKnowledge?path=README.md)
